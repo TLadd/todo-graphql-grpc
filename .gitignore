@@ -2,6 +2,8 @@
 
 # dependencies
 /frontend/node_modules
+/graphql/node_modules
+/grpc/node_modules
 
 # testing
 /coverage
