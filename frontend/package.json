@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-scripts": "2.0.0-next.3e165448"
+    "react-scripts": "2.0.0-next.3e165448",
+    "todomvc-app-css": "^2.1.2",
+    "todomvc-common": "^1.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,5 +26,8 @@
       "not op_mini all",
       "ie 11"
     ]
+  },
+  "devDependencies": {
+    "flow-bin": "^0.76.0"
   }
 }
