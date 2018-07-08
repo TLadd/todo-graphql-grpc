@@ -1,84 +1,86 @@
 
 
-/* @flow */
-/* eslint-disable */
+/* tslint:disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
 // GraphQL query operation: GetTodos
 // ====================================================
 
-export type GetTodos_todos = {
-  id: string,
-  title: ?string,
-};
+export interface GetTodos_todos {
+  id: string;
+  title: string | null;
+}
 
-export type GetTodos = {
-  todos: ?Array<GetTodos_todos>
-};
+export interface GetTodos {
+  todos: GetTodos_todos[] | null;
+}
 
 
-/* @flow */
-/* eslint-disable */
+/* tslint:disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
 // GraphQL mutation operation: CreateTodo
 // ====================================================
 
-export type CreateTodo_createTodo_todo = {
-  id: string,
-  title: ?string,
-};
+export interface CreateTodo_createTodo_todo {
+  id: string;
+  title: string | null;
+}
 
-export type CreateTodo_createTodo = {
-  todo: ?CreateTodo_createTodo_todo
-};
+export interface CreateTodo_createTodo {
+  todo: CreateTodo_createTodo_todo | null;
+}
 
-export type CreateTodo = {
-  createTodo: ?CreateTodo_createTodo
-};
+export interface CreateTodo {
+  createTodo: CreateTodo_createTodo | null;
+}
 
-export type CreateTodoVariables = {
-  input: CreateTodoInput
-};
+export interface CreateTodoVariables {
+  input: CreateTodoInput;
+}
 
 
-/* @flow */
-/* eslint-disable */
+/* tslint:disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
 // GraphQL mutation operation: DeleteTodo
 // ====================================================
 
-export type DeleteTodo_deleteTodo = {
-  success: ?boolean
-};
+export interface DeleteTodo_deleteTodo {
+  success: boolean | null;
+}
 
-export type DeleteTodo = {
-  deleteTodo: ?DeleteTodo_deleteTodo
-};
+export interface DeleteTodo {
+  deleteTodo: DeleteTodo_deleteTodo | null;
+}
 
-export type DeleteTodoVariables = {
-  input: DeleteTodoInput
-};
+export interface DeleteTodoVariables {
+  input: DeleteTodoInput;
+}
 
-/* @flow */
-/* eslint-disable */
+/* tslint:disable */
 // This file was automatically generated and should not be edited.
 
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
 
-export type CreateTodoInput = {|
-  title: string
-|};
+/**
+ * 
+ */
+export interface CreateTodoInput {
+  title: string;
+}
 
-export type DeleteTodoInput = {|
-  id: string
-|};
+/**
+ * 
+ */
+export interface DeleteTodoInput {
+  id: string;
+}
 
 //==============================================================
 // END Enums and Input Objects

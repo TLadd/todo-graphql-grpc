@@ -1,35 +1,44 @@
 // @flow
 
 import React, { Component } from "react";
+import { Query, Mutation } from "react-apollo";
+import { GetTodos, CreateTodo, DeleteTodo } from "./queries.graphql";
 import {
-  GetTodosQuery,
-  CreateTodoMutation,
-  DeleteTodoMutation
-} from "./ApolloComps";
-import { GetTodos } from "./queries.graphql";
-import type { GetTodos_todos } from "./types";
+  GetTodos as GetTodosType,
+  CreateTodo as CreateTodoType,
+  CreateTodoVariables,
+  DeleteTodo as DeleteTodoType,
+  DeleteTodoVariables,
+  GetTodos_todos
+} from "./types";
 
-const TodoItem = ({ onDelete, todo }) => {
-  return (
-    <li>
-      <div className="view">
-        <label>{todo.title}</label>
-        <button className="destroy" onClick={onDelete} />
-      </div>
-    </li>
-  );
-};
+class GetTodosQuery extends Query<GetTodosType, {}> {}
+class CreateTodoMutation extends Mutation<
+  CreateTodoType,
+  CreateTodoVariables
+> {}
+class DeleteTodoMutation extends Mutation<
+  DeleteTodoType,
+  DeleteTodoVariables
+> {}
 
-const TodosList = ({ onDelete, todos }) => {
+const TodosList = ({
+  onDelete,
+  todos
+}: {
+  onDelete: (id: string) => {};
+  todos: Array<GetTodos_todos>;
+}) => {
   return (
     <section className="main">
       <ul className="todo-list">
         {todos.map(todo => (
-          <TodoItem
-            key={todo.id}
-            onDelete={() => onDelete(todo.id)}
-            todo={todo}
-          />
+          <li key={todo.id}>
+            <div className="view">
+              <label>{todo.title}</label>
+              <button className="destroy" onClick={() => onDelete(todo.id)} />
+            </div>
+          </li>
         ))}
       </ul>
     </section>
@@ -37,12 +46,12 @@ const TodosList = ({ onDelete, todos }) => {
 };
 
 type AppProps = {
-  onCreate: (title: string) => mixed,
-  onDelete: (id: string) => mixed,
-  todos: Array<GetTodos_todos>
+  onCreate: (title: string) => {};
+  onDelete: (id: string) => {};
+  todos: Array<GetTodos_todos>;
 };
 type AppState = {
-  newTodo: string
+  newTodo: string;
 };
 
 class App extends Component<AppProps, AppState> {
@@ -61,7 +70,7 @@ class App extends Component<AppProps, AppState> {
             className="new-todo"
             placeholder="What needs to be done?"
             value={this.state.newTodo}
-            onKeyDown={(e: SyntheticKeyboardEvent<>) => {
+            onKeyDown={(e: React.KeyboardEvent) => {
               if (e.keyCode !== 13) {
                 return;
               }
@@ -74,7 +83,7 @@ class App extends Component<AppProps, AppState> {
                 this.setState({ newTodo: "" });
               }
             }}
-            onChange={(e: SyntheticInputEvent<>) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               this.setState({ newTodo: e.target.value })
             }
             autoFocus={true}
@@ -88,11 +97,11 @@ class App extends Component<AppProps, AppState> {
 
 const ApolloApp = () => {
   return (
-    <GetTodosQuery>
+    <GetTodosQuery query={GetTodos}>
       {({ data }) => (
-        <DeleteTodoMutation>
+        <DeleteTodoMutation mutation={DeleteTodo}>
           {deleteTodo => (
-            <CreateTodoMutation>
+            <CreateTodoMutation mutation={CreateTodo}>
               {createTodo => {
                 if (!data || !data.todos) {
                   return null;

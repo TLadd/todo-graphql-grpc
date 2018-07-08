@@ -593,6 +593,12 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.52"
 
+"@babel/plugin-syntax-typescript@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.0.0-beta.52.tgz#9864f409a692d051a76e19828036234325c752f5"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.52"
+
 "@babel/plugin-transform-arrow-functions@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.0.0-beta.46.tgz#130e79b1d4508767c47e5febb809f8dca80c05f5"
@@ -1037,6 +1043,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.52"
 
+"@babel/plugin-transform-typescript@7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.0.0-beta.52.tgz#8361c4c002040d4e4b5f38416757c0fe4741a1cb"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.52"
+    "@babel/plugin-syntax-typescript" "7.0.0-beta.52"
+
 "@babel/plugin-transform-unicode-regex@7.0.0-beta.46":
   version "7.0.0-beta.46"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.0.0-beta.46.tgz#10e6edcc8eb0db71ff2f0e3fc87ed88337d24fb9"
@@ -1169,6 +1182,13 @@
     "@babel/plugin-transform-react-jsx" "7.0.0-beta.52"
     "@babel/plugin-transform-react-jsx-self" "7.0.0-beta.52"
     "@babel/plugin-transform-react-jsx-source" "7.0.0-beta.52"
+
+"@babel/preset-typescript@^7.0.0-beta.52":
+  version "7.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.0.0-beta.52.tgz#34778e100bc69411463d44ffc4d53aea798b9921"
+  dependencies:
+    "@babel/helper-plugin-utils" "7.0.0-beta.52"
+    "@babel/plugin-transform-typescript" "7.0.0-beta.52"
 
 "@babel/runtime@7.0.0-beta.46":
   version "7.0.0-beta.46"
@@ -3738,6 +3758,10 @@ dotenv-expand@4.2.0:
 dotenv@5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-5.0.1.tgz#a5317459bd3d79ab88cff6e44057a6a3fbb1fcef"
+
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -7982,6 +8006,19 @@ react-apollo@^2.1.9:
     lodash "^4.17.10"
     prop-types "^15.6.0"
 
+react-app-rewire-typescript-babel-preset@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-app-rewire-typescript-babel-preset/-/react-app-rewire-typescript-babel-preset-2.3.0.tgz#48d8e4d457ce349fe554325a9fbef990461ad81a"
+  dependencies:
+    tslint-loader "^3.6.0"
+
+react-app-rewired@next:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-app-rewired/-/react-app-rewired-2.0.0.tgz#1b418e4a1db30a108c9bb00ab0260f45e9a2297e"
+  dependencies:
+    cross-spawn "^5.1.0"
+    dotenv "^4.0.0"
+
 react-dev-utils@6.0.0-next.3e165448:
   version "6.0.0-next.3e165448"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-6.0.0-next.3e165448.tgz#d573ed0ba692f6cee23166f99204e5761df0897c"
@@ -8461,7 +8498,7 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
+rimraf@^2.2.8, rimraf@^2.4.4, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
   dependencies:
@@ -9379,6 +9416,16 @@ tslib@^1, tslib@^1.9.0, tslib@^1.9.2, tslib@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 
+tslint-loader@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/tslint-loader/-/tslint-loader-3.6.0.tgz#12ed4d5ef57d68be25cd12692fb2108b66469d76"
+  dependencies:
+    loader-utils "^1.0.2"
+    mkdirp "^0.5.1"
+    object-assign "^4.1.1"
+    rimraf "^2.4.4"
+    semver "^5.3.0"
+
 tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
@@ -9409,6 +9456,10 @@ type-is@~1.6.15, type-is@~1.6.16:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
+
+typescript@^2.9.2:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
 ua-parser-js@^0.7.18:
   version "0.7.18"
