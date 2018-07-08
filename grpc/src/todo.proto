@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+service TodoManager {
+  rpc CreateTodo(CreateTodoRequest) returns (CreateTodoResponse) {}
+
+  rpc GetTodos(GetTodosRequest) returns (GetTodosResponse) {}
+
+  rpc DeleteTodo(DeleteTodoRequest) returns (DeleteTodoResponse) {}
+}
+
+message CreateTodoRequest {
+  string title = 1;
+}
+
+message CreateTodoResponse {
+  Todo todo = 1;
+}
+
+message GetTodosRequest {}
+
+// GetStacksRequest returns stacks
+message GetTodosResponse {
+  repeated Todo results = 2;
+}
+
+message DeleteTodoRequest {
+  string todo_id = 1;
+}
+
+message DeleteTodoResponse {
+  bool success = 1;
+}
+
+message Todo {
+  string id = 1;
+  string title = 2;
+}
