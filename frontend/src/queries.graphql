@@ -1,0 +1,21 @@
+query GetTodos {
+  todos {
+    id
+    title
+  }
+}
+
+mutation CreateTodo($input: CreateTodoInput!) {
+  createTodo(input: $input) {
+    todo {
+      id
+      title
+    }
+  }
+}
+
+mutation DeleteTodo($input: DeleteTodoInput!) {
+  deleteTodo(input: $input) {
+    success
+  }
+}

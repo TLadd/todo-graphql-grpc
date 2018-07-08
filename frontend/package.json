@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apollo-boost": "^0.1.10",
+    "graphql": "^0.13.2",
     "react": "^16.4.1",
+    "react-apollo": "^2.1.9",
     "react-dom": "^16.4.1",
     "react-scripts": "2.0.0-next.3e165448",
     "todomvc-app-css": "^2.1.2",
@@ -13,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "genQueries": "apollo schema:download --endpoint=http://localhost:4000/graphql schema.json && apollo codegen:generate --schema=schema.json --target=flow --outputFlat src/types.js && apollo-flow-components"
   },
   "browserslist": {
     "development": [
@@ -28,6 +32,8 @@
     ]
   },
   "devDependencies": {
+    "apollo": "^1.2.0",
+    "apollo-flow-components": "^1.0.0",
     "flow-bin": "^0.76.0"
   }
 }
