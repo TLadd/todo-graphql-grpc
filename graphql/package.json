@@ -8,14 +8,14 @@
     "genTypes": "graphql get-schema && gql-gen --schema schema.json --template graphql-codegen-typescript-template --out ./src/types.ts"
   },
   "dependencies": {
-    "apollo-server-express": "2.0.0-rc.5",
+    "apollo-server-express": "2.0.5",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
-    "graphql-cli": "^2.16.4",
-    "graphql-code-generator": "^0.10.1",
-    "graphql-codegen-typescript-template": "^0.10.1",
-    "grpc": "^1.13.0",
-    "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
+    "graphql-cli": "^2.16.5",
+    "graphql-code-generator": "^0.11.0",
+    "graphql-codegen-typescript-template": "^0.11.0",
+    "grpc": "^1.14.1",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
   }
 }

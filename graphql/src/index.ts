@@ -1,6 +1,5 @@
 import express from "express";
 import { ApolloServer, gql } from "apollo-server-express";
-import grpc from "grpc";
 import {
   GetTodosRequest,
   CreateTodoRequest,
@@ -65,7 +64,7 @@ const resolvers: any = {
   },
   Mutation: {
     createTodo: (
-      obj: object,
+      _obj: object,
       args: CreateTodoMutationArgs
     ): Promise<CreateTodoPayload> => {
       const request = new CreateTodoRequest();
@@ -81,7 +80,7 @@ const resolvers: any = {
     },
 
     deleteTodo: (
-      obj: object,
+      _obj: object,
       args: DeleteTodoMutationArgs
     ): Promise<DeleteTodoPayload> => {
       const request = new DeleteTodoRequest();
