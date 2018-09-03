@@ -1,34 +1,19 @@
 // @flow
 
 import React, { Component } from "react";
-import { Query, Mutation } from "react-apollo";
-import { GetTodos, CreateTodo, DeleteTodo } from "./queries.graphql";
+import { GetTodos } from "./queries.graphql";
+import { GetTodos_todos } from "./types";
 import {
-  GetTodos as GetTodosType,
-  CreateTodo as CreateTodoType,
-  CreateTodoVariables,
-  DeleteTodo as DeleteTodoType,
-  DeleteTodoVariables,
-  GetTodos_todos
-} from "./types";
+  GetTodosQuery,
+  CreateTodoMutation,
+  DeleteTodoMutation
+} from "./ApolloComps";
 
-class GetTodosQuery extends Query<GetTodosType, {}> {}
-class CreateTodoMutation extends Mutation<
-  CreateTodoType,
-  CreateTodoVariables
-> {}
-class DeleteTodoMutation extends Mutation<
-  DeleteTodoType,
-  DeleteTodoVariables
-> {}
-
-const TodosList = ({
-  onDelete,
-  todos
-}: {
+type TodosListProps = {
   onDelete: (id: string) => {};
   todos: Array<GetTodos_todos>;
-}) => {
+};
+const TodosList = ({ onDelete, todos }: TodosListProps) => {
   return (
     <section className="main">
       <ul className="todo-list">
@@ -97,11 +82,11 @@ class App extends Component<AppProps, AppState> {
 
 const ApolloApp = () => {
   return (
-    <GetTodosQuery query={GetTodos}>
+    <GetTodosQuery>
       {({ data }) => (
-        <DeleteTodoMutation mutation={DeleteTodo}>
+        <DeleteTodoMutation>
           {deleteTodo => (
-            <CreateTodoMutation mutation={CreateTodo}>
+            <CreateTodoMutation>
               {createTodo => {
                 if (!data || !data.todos) {
                   return null;
@@ -141,7 +126,7 @@ const ApolloApp = () => {
                             id
                           }
                         },
-                        update: (cache, response) => {
+                        update: cache => {
                           cache.writeQuery({
                             query: GetTodos,
                             data: {
