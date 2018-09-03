@@ -48,7 +48,7 @@ const typeDefs = gql`
   }
 `;
 
-const resolvers: any = {
+const resolvers: { [key: string]: any } = {
   Query: {
     todos: (): Promise<Array<Todo>> => {
       const request = new GetTodosRequest();

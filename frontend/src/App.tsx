@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 import { GetTodos } from "./queries.graphql";
 import { GetTodos_todos } from "./types";
